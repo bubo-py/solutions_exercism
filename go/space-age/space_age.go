@@ -8,8 +8,8 @@ type Planet string
 const EarthTime = float64(31557600)
 
 // PlanetMap contains planet's seconds
-var PlanetMap = map[Planet]float64 {
-    "Earth":   1,
+var PlanetMap = map[Planet]float64{
+	"Earth":   1,
 	"Mercury": 0.2408467,
 	"Venus":   0.61519726,
 	"Mars":    1.8808158,
@@ -21,5 +21,5 @@ var PlanetMap = map[Planet]float64 {
 
 // Age calculate given age
 func Age(seconds float64, planet Planet) float64 {
-    return seconds / (EarthTime * PlanetMap[planet])
+	return seconds / (EarthTime * PlanetMap[planet])
 }
