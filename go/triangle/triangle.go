@@ -7,7 +7,7 @@ package triangle
 
 
 // Notice KindFromSides() returns this type. Pick a suitable data type.
-type Kind
+type Kind float32
 
 const (
     // Pick values for the following identifiers used by the test program.

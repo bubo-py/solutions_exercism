@@ -16,10 +16,10 @@ func Convert(number int) string {
 		converted += "Plong"
 	}
 
-	if converted != "" {
-		return converted
+	if converted == "" {
+		return strconv.Itoa(number)
 	}
 
-	return strconv.Itoa(number)
+	return converted
 
 }
