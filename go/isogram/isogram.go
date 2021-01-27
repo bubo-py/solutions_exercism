@@ -5,8 +5,8 @@ import "strings"
 
 // IsIsogram checks if given word is an isogram
 func IsIsogram(word string) bool {
-	word = strings.Replace(word, " ", "", 1)
-	word = strings.ToLower(strings.Replace(word, "-", "", 1))
+	r := strings.NewReplacer(" ", "", "-", "")
+	word = strings.ToLower(r.Replace(word))
 	wasBefore := make(map[rune]int)
 
 	for _, n := range word {
