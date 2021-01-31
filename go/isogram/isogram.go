@@ -7,13 +7,14 @@ import "strings"
 func IsIsogram(word string) bool {
 	r := strings.NewReplacer(" ", "", "-", "")
 	word = strings.ToLower(r.Replace(word))
-	wasBefore := make(map[rune]int)
 
-	for _, n := range word {
-		wasBefore[n]++
+	var charCount []int
+
+	for _, v := range(word) {
+		charCount = append(charCount, strings.Count(word, string(v)))
 	}
 
-	for _, v := range wasBefore {
+	for _, v := range charCount {
 		if v > 1 {
 			return false
 		}
