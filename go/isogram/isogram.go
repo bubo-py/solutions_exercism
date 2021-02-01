@@ -8,7 +8,7 @@ func IsIsogram(word string) bool {
 	r := strings.NewReplacer(" ", "", "-", "")
 	word = strings.ToLower(r.Replace(word))
 
-	for _, v := range(word) {
+	for _, v := range word {
 		if strings.Count(word, string(v)) > 1 {
 			return false
 		}
