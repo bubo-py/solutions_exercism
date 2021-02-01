@@ -8,16 +8,11 @@ func IsIsogram(word string) bool {
 	r := strings.NewReplacer(" ", "", "-", "")
 	word = strings.ToLower(r.Replace(word))
 
-	var charCount []int
-
 	for _, v := range(word) {
-		charCount = append(charCount, strings.Count(word, string(v)))
-	}
-
-	for _, v := range charCount {
-		if v > 1 {
+		if strings.Count(word, string(v)) > 1 {
 			return false
 		}
 	}
+
 	return true
 }
