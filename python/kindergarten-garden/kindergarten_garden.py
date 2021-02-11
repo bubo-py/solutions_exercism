@@ -28,7 +28,3 @@ class Garden:
             plant_list.append(self.seeds[s])
 
         return plant_list
-
-
-# t = Garden("VVCCGG\nVVCCGG")
-# print(t.plants("Charlie"))
