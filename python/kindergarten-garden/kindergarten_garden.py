@@ -23,14 +23,9 @@ class Garden:
         i = (self.students.index(student) + 1) * 2
         plant_list = []
 
-        pair1 = self.diagram[0][i-2:i]
-        pair2 = self.diagram[1][i-2:i]
-
-        for s in pair1:
+        plants = self.diagram[0][i-2:i] + self.diagram[1][i-2:i]
+        for s in plants:
             plant_list.append(self.seeds[s])
-
-        for c in pair2:
-            plant_list.append(self.seeds[c])
 
         return plant_list
 
