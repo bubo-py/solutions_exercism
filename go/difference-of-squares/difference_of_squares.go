@@ -1,24 +1,16 @@
 // Package diffsquares calculates the difference between definite squares
 package diffsquares
 
-import "math"
-
 // SquareOfSum calculates the square of the sum
 func SquareOfSum(n int) int {
-	var sum int = 0
-	for x := 0; x <= n; x++ {
-		sum += x
-	}
-	return int(math.Pow(float64(sum), 2))
+	result := (n + 1) * n / 2
+	return result * result
 }
 
 // SumOfSquares calculates the sum of the squares
 func SumOfSquares(n int) int {
-	var squaredSum float64 = 0
-	for x := 0; x <= n; x++ {
-		squaredSum += math.Pow(float64(x), 2)
-	}
-	return int(squaredSum)
+	result := n * (n+1) * (n * 2 + 1) / 6
+	return result
 }
 
 // Difference calculates the difference between squares, using above functions
