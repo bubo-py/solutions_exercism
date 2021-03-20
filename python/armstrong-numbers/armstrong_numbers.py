@@ -4,7 +4,6 @@ def is_armstrong_number(number):
     sum = 0
 
     for n in str(number):
-        n = int(n)
-        sum += n ** pow
+        sum += int(n) ** pow
 
     return True if sum == number else False
