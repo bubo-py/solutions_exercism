@@ -17,5 +17,3 @@ def is_valid(isbn):
         return False
 
     return True if sum % 11 == 0 else False
-
-print(is_valid("359821507X"))
