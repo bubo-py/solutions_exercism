@@ -5,21 +5,34 @@ import (
     "strconv"
 )
 
-func Valid (str string) bool {
+func Valid(str string) bool {
+    // Cleanup
+	runes := []rune(strings.ReplaceAll(str, " ", ""))
+
+    // Initial values and length validation
+	length := len(runes)
     sum := 0
-    n := 0
-    str = strings.Replace(str, " ", "", -1)
 
-    if _, err := strconv.Atoi(str); err == nil && len([]rune(str)) > 1 {
-        for range str {
-            toAdd, _ := strconv.Atoi(string(str[n]))
-            sum += toAdd
-            n += 2
-        }
-    }
+	if length < 2 {
+		return false
+	}
 
-    // if sum % 10 == 0 {
-    //     return true
-    // }
-    return false
+	for i := 0; i < length; i++ {
+		num, err := strconv.Atoi(string(runes[length-1-i]))
+		if err != nil {
+			return false
+		}
+
+		if i % 2 == 1 {
+			if num * 2 >= 9 {
+				sum += (num * 2) - 9
+			} else {
+				sum += num * 2
+			}
+		} else {
+			sum += num
+		}
+	}
+
+	return sum % 10 == 0
 }
