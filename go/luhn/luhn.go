@@ -1,3 +1,4 @@
+// Package luhn checks whether or not a number is valid per the Luhn formula
 package luhn
 
 import (
@@ -5,6 +6,7 @@ import (
     "strconv"
 )
 
+// Valid checks if given string is valid per the Luhn formula
 func Valid(str string) bool {
     // Cleanup
 	runes := []rune(strings.ReplaceAll(str, " ", ""))
@@ -18,6 +20,7 @@ func Valid(str string) bool {
 	}
 
 	for i := 0; i < length; i++ {
+        // Func Atoi converts a string into an int
 		num, err := strconv.Atoi(string(runes[length-1-i]))
 		if err != nil {
 			return false
