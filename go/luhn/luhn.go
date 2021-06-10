@@ -2,40 +2,37 @@
 package luhn
 
 import (
-    "strings"
-    "strconv"
+	"strings"
+	"unicode"
 )
 
 // Valid checks if given string is valid per the Luhn formula
 func Valid(str string) bool {
-    // Cleanup
+	// Cleanup
 	runes := []rune(strings.ReplaceAll(str, " ", ""))
 
-    // Initial values and length validation
-	length := len(runes)
-    sum := 0
-
-	if length < 2 {
+	// Initial values and length validation
+	sum := 0
+	if len(runes) < 2 {
 		return false
 	}
 
-	for i := 0; i < length; i++ {
-        // Func Atoi converts a string into an int
-		num, err := strconv.Atoi(string(runes[length-1-i]))
-		if err != nil {
+	for double, i := false, len(runes)-1; i >= 0; double, i = !double, i-1 {
+
+		// Check if the element is a number
+		if !unicode.IsDigit(runes[i]) {
 			return false
 		}
 
-		if i % 2 == 1 {
-			if num * 2 >= 9 {
-				sum += (num * 2) - 9
-			} else {
-				sum += num * 2
-			}
-		} else {
-			sum += num
-		}
-	}
+		n := int(runes[i] - '0')
 
-	return sum % 10 == 0
+		if double {
+			n *= 2
+			if n > 9 {
+				n -= 9
+			}
+		}
+		sum += n
+	}
+	return sum%10 == 0
 }
